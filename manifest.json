@@ -19,8 +19,13 @@
   ],
   "browser_action": {
       "default_title": "专注工作与学习",
-      "default_icon": "icon.png",
+      "default_icon": "icons/icon48.png",
       "default_popup": "popup.html"
+  },
+  "icons": { 
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
   },
   "manifest_version": 2
 }
