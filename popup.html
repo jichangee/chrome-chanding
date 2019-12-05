@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="jquery.min.js"></script>
+  <script src="popup.js"></script>
+  <style>
+    body{
+      margin: 0;
+      padding: 8px 12px;
+      box-sizing: border-box;
+    }
+    .form{
+      display: flex;
+      align-items: center;
+    }
+    #url {
+      width: 180px;
+      height: 22px;
+      line-height: 22px;
+      margin-right: 10px;
+      font-size: 14px;
+      padding: 0 0 0 4px;
+      outline: none;
+      border: 1px solid #333;
+    }
+    #add {
+      border: 1px solid #333;
+      background: transparent;
+      width: 60px;
+      height: 24px;
+      line-height: 20px;
+      text-align: center;
+    }
+    #list{
+      padding: 0 18px;
+      font-size: 14px;
+      margin: 0;
+    }
+    #list li {
+      margin-top: 12px;
+      font-size: 14px;
+      line-height: 24px;
+      position: relative;
+      cursor: pointer;
+      transition: all 500ms;
+    }
+    #list li:hover{
+      text-decoration: underline;
+    }
+    #list li:hover .close {
+      display: block;
+    }
+    #list li .close {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      width: 15px;
+      height: 15px;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+    #list li .close:before,
+    #list li .close:after {
+      content: "";
+      height: 2px;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 7px;
+      background-color: #333;
+    }
+    #list li .close:before {
+      transform: rotate(45deg);
+    }
+    #list li .close:after {
+      transform: rotate(-45deg);
+    }
+  </style>
+</head>
+<body>
+  <body>
+    <p>输入需要屏蔽的网址（比如知乎：zhihu）</p>
+    <div class="form"><input type="text" id="url"><button id="add">添加</button></div>
+    <ul id="list"></ul>
+  </body>
+</body>
+</html>
