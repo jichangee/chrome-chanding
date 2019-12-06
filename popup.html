@@ -8,11 +8,47 @@
   <script src="jquery.min.js"></script>
   <script src="popup.js"></script>
   <style>
+    /* common */
     body{
       margin: 0;
       padding: 8px 12px;
       box-sizing: border-box;
     }
+    button {
+      border: 1px solid #333;
+      background: transparent;
+      padding: 0 10px;
+      min-width: 60px;
+      height: 24px;
+      line-height: 20px;
+      text-align: center;
+      outline: none;
+      cursor: pointer;
+      transition: all 300ms;
+      color: #333;
+    }
+    button.off{
+      color: #7f7f7f;
+      border-color: #7f7f7f;
+      cursor: not-allowed;
+    }
+    button:hover{
+      border-color: #fff;
+      color: #fff;
+      background-color: #333;
+    }
+    button.off:hover{
+      border-color: #7f7f7f;
+      color: #7f7f7f;
+      background-color: #7f7f7f;
+    }
+    .title{
+      margin: 0 0 10px;
+    }
+    hr{
+      margin: 12px 0;
+    }
+    /* url */
     .form{
       display: flex;
       align-items: center;
@@ -26,14 +62,6 @@
       padding: 0 0 0 4px;
       outline: none;
       border: 1px solid #333;
-    }
-    #add {
-      border: 1px solid #333;
-      background: transparent;
-      width: 60px;
-      height: 24px;
-      line-height: 20px;
-      text-align: center;
     }
     #list{
       padding: 0 18px;
@@ -80,13 +108,68 @@
     #list li .close:after {
       transform: rotate(-45deg);
     }
+
+    /* setting */
+    .date-container .checkbox{
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+    .time-container {
+      margin-bottom: 8px;
+    }
+    .time-container .split {
+      display: inline-block;
+      margin: 0 10px;
+    }
+    .handle-container{
+      margin: 12px 0 0;
+      display: flex;
+      justify-content: flex-end;
+    }
+    /* force */
+    .force-container{
+      padding-top: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    /* mock */
+    .mock{
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, .5);
+      cursor: not-allowed;
+    }
   </style>
 </head>
 <body>
   <body>
-    <p>输入需要屏蔽的网址（比如知乎：zhihu）</p>
-    <div class="form"><input type="text" id="url"><button id="add">添加</button></div>
-    <ul id="list"></ul>
+    <div class="force-container">
+      <p id="forceTip">禁止修改生效时间和删减屏蔽网址</p>
+      <button id="force">开启</button>
+    </div>
+    <hr>
+    <div class="setting-container">
+      <p class="title">生效时间</p>
+      <div class="date-container"></div>
+      <div class="time-container">
+        <input type="time" id="startTime" value="09:00">
+        <span class="split">—</span>
+        <input type="time" id="endTime" value="18:00">
+      </div>
+      <div class="handle-container"><button id="save">保存</button></div>
+    </div>
+    <hr>
+    <div class="form-container">
+      <p class="title">输入需要屏蔽的网址（比如知乎：zhihu）</p>
+      <div class="form"><input type="text" id="url"><button id="add">添加</button></div>
+      <ul id="list"></ul>
+    </div>
+    <div class="mock"></div>
   </body>
 </body>
 </html>

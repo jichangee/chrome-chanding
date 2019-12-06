@@ -1,7 +1,7 @@
 {
   "name": "禅定",
   "description": "专注工作与学习",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "content_scripts": [
     {
       "js": ["content_scripts.js"],
